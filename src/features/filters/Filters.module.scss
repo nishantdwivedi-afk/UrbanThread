@@ -1,0 +1,39 @@
+@use '../../styles/variables.scss' as *;
+
+.title {
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+.sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.sizeButton {
+  border: 1px solid $color-border;
+  background: $color-white;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+
+  &:hover {
+    border-color: $color-black;
+  }
+}
+
+.active {
+  background: $color-black;
+  color: $color-white;
+}
+
+.select {
+  width: 100%;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: 12px;
+  background: $color-white;
+}

@@ -1,0 +1,91 @@
+@use '../../styles/variables.scss' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  position: relative;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: $shadow-card;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  h3 {
+    margin: 16px 0 10px;
+    font-size: 16px;
+    color: $color-black;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: $color-yellow;
+  color: $color-black;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.imageBox {
+  height: 230px;
+  border-radius: 18px;
+  background: #f1f1f1;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  strong {
+    font-size: 18px;
+  }
+
+  span {
+    font-size: 12px;
+    color: $color-muted;
+    text-align: right;
+  }
+}
+
+.addButton {
+  width: 100%;
+  border: 0;
+  background: $color-black;
+  color: $color-white;
+  padding: 13px;
+  border-radius: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

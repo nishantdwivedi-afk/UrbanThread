@@ -1,0 +1,4 @@
+export const SORT_OPTIONS = {
+  LOW_TO_HIGH: 'LOW_TO_HIGH',
+  HIGH_TO_LOW: 'HIGH_TO_LOW'
+};

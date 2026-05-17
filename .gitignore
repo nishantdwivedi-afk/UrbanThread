@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# build files
+dist/
+
+# environment files
+.env
+
+# macOS
+.DS_Store
+
+# vscode
+.vscode/
+
+# testing
+vitest-report/
+
+# webpack cache
+.cache/
+
+# generated assets
+*.local

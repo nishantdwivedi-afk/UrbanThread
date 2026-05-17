@@ -1,0 +1,75 @@
+@use '../../styles/variables.scss' as *;
+
+.page {
+  display: grid;
+  grid-template-columns: 240px 1fr 320px;
+  gap: 24px;
+  padding: 28px 36px;
+}
+
+.filters,
+.cart {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 22px;
+  padding: 22px;
+  min-height: 420px;
+  box-shadow: $shadow-card;
+
+  h2 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+
+  p {
+    color: $color-muted;
+    font-size: 14px;
+  }
+}
+
+.cart {
+  background: $color-dark;
+  color: $color-white;
+
+  p {
+    color: #aaa;
+  }
+}
+
+.content {
+  min-width: 0;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  span {
+    color: $color-muted;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .page {
+    grid-template-columns: 220px 1fr;
+  }
+
+  .cart {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
