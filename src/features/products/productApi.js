@@ -1,5 +1,5 @@
 const PRODUCTS_API_URL =
-  'https://mocki.io/v1/0fdb8e9e-df08-4b67-9ae0-3cb4eccd3bc8';
+  process.env.PRODUCTS_API_URL;
 
 const normalizeProduct = product => ({
   id: product.id,
