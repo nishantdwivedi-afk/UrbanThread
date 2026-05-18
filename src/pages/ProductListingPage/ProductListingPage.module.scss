@@ -2,9 +2,11 @@
 
 .page {
   display: grid;
-  grid-template-columns: 240px 1fr 320px;
+  grid-template-columns: 240px 1fr 360px;
   gap: 24px;
+  height: calc(100vh - 90px);
   padding: 28px 36px;
+  overflow: hidden;
 }
 
 .filters,
@@ -13,38 +15,37 @@
   border: 1px solid $color-border;
   border-radius: 22px;
   padding: 22px;
-  min-height: 420px;
+  height: 100%;
+  overflow: hidden;
   box-shadow: $shadow-card;
-  position: sticky;
-  top: 24px;
-  h2 {
-    margin-top: 0;
-    font-size: 18px;
-  }
-
-  p {
-    color: $color-muted;
-    font-size: 14px;
-  }
 }
 
 .cart {
   background: $color-dark;
   color: $color-white;
-
-  p {
-    color: #aaa;
-  }
 }
 
 .content {
   min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .heading {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: $color-bg;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 22px;
   margin-bottom: 22px;
 
   h2 {
@@ -56,6 +57,12 @@
     color: $color-muted;
     font-size: 14px;
   }
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
 @media (max-width: 1050px) {
@@ -71,12 +78,16 @@
 @media (max-width: 760px) {
   .page {
     grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
     padding: 20px;
   }
-}
 
-.skeletonGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  .content {
+    overflow: visible;
+  }
+
+  .filters {
+    height: auto;
+  }
 }

@@ -5,5 +5,6 @@ export const SIZES = [
   'ML',
   'L',
   'XL',
-  'XXL'
+  'XXL',
+  'X'
 ];

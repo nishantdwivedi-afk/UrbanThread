@@ -1,36 +1,27 @@
-export const getProducts = async () => {
-  await new Promise(resolve =>
-    setTimeout(resolve, 1000)
-  );
+const PRODUCTS_API_URL =
+  'https://mocki.io/v1/0fdb8e9e-df08-4b67-9ae0-3cb4eccd3bc8';
 
-  return [
-    {
-      sku: 'sku-001',
-      title: 'Urban Black Tee',
-      price: 499,
-      sizes: ['S', 'M', 'L', 'XL'],
-      isFreeShipping: true
-    },
-    {
-      sku: 'sku-002',
-      title: 'Oversized White Tee',
-      price: 699,
-      sizes: ['M', 'L', 'XL', 'XXL'],
-      isFreeShipping: true
-    },
-    {
-      sku: 'sku-003',
-      title: 'Street Grey T-Shirt',
-      price: 399,
-      sizes: ['XS', 'S', 'M'],
-      isFreeShipping: false
-    },
-    {
-      sku: 'sku-004',
-      title: 'Minimal Beige Tee',
-      price: 599,
-      sizes: ['ML', 'L', 'XL'],
-      isFreeShipping: true
-    }
-  ];
+const normalizeProduct = product => ({
+  id: product.id,
+  sku: String(product.sku),
+  title: product.title,
+  description: product.description,
+  style: product.style,
+  price: product.price,
+  currencyFormat: product.currencyFormat,
+  installments: product.installments,
+  sizes: product.availableSizes,
+  isFreeShipping: product.isFreeShipping
+});
+
+export const getProducts = async () => {
+  const response = await fetch(PRODUCTS_API_URL);
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch products');
+  }
+
+  const data = await response.json();
+
+  return data.products.map(normalizeProduct);
 };

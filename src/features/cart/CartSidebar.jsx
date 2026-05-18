@@ -48,7 +48,7 @@ const CartSidebar = () => {
               <span>Subtotal</span>
 
               <strong>
-                ₹{subtotal}
+                ${subtotal.toFixed(2)}
               </strong>
             </div>
 

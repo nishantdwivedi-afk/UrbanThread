@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
 
       <div className={styles.imageBox}>
         <img
-          src={PRODUCT_IMAGES[product.sku]}
+         src={PRODUCT_IMAGES[product.sku] || '/assets/products/placeholder.jpg'}
           alt={product.title}
         />
       </div>
@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
 
       <div className={styles.meta}>
         <strong>
-          ₹{product.price}
+          {product.currencyFormat}{product.price}
         </strong>
 
         <span>
