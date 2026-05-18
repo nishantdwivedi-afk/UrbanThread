@@ -7,7 +7,10 @@
   padding: 28px 36px;
   background: $color-white;
   border-bottom: 1px solid $color-border;
-
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  
   h1 {
     margin: 0;
     font-size: 28px;

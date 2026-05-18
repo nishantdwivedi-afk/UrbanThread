@@ -7,6 +7,12 @@ import ProductGrid from '../../features/products/ProductGrid';
 
 import { fetchProducts } from '../../features/products/productSlice';
 
+import CartSidebar from '../../features/cart/CartSidebar';
+
+import ProductSkeleton from '../../features/products/ProductSkeleton';
+
+import EmptyProducts from '../../features/products/EmptyProducts';
+
 import {
   selectFilteredProducts,
   selectProductsError,
@@ -44,23 +50,30 @@ const ProductListingPage = () => {
         </div>
 
         {loading && (
-          <p>Loading products...</p>
+          <div className={styles.skeletonGrid}>
+            {Array.from({ length: 6 }).map((_, index) => (
+            <ProductSkeleton key={index} />
+          ))}
+          </div>
         )}
 
         {error && (
           <p>{error}</p>
         )}
 
-        {!loading && !error && (
+        {!loading && !error && !!products.length && (
           <ProductGrid products={products} />
         )}
+
+        {!loading && !error && !products.length && (
+        <EmptyProducts />
+        )}
+        
       </main>
 
-      <aside className={styles.cart}>
-        <h2>Cart</h2>
-
-        <p>Your cart is empty.</p>
-      </aside>
+     <aside className={styles.cart}>
+       <CartSidebar />
+     </aside>
     </div>
   );
 };

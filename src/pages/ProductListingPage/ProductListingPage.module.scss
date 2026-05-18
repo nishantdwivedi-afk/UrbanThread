@@ -15,7 +15,8 @@
   padding: 22px;
   min-height: 420px;
   box-shadow: $shadow-card;
-
+  position: sticky;
+  top: 24px;
   h2 {
     margin-top: 0;
     font-size: 18px;
@@ -72,4 +73,10 @@
     grid-template-columns: 1fr;
     padding: 20px;
   }
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
