@@ -3,6 +3,7 @@ require('dotenv').config();
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -67,6 +68,15 @@ module.exports = {
     'process.env.PRODUCTS_API_URL': JSON.stringify(
       process.env.PRODUCTS_API_URL
     )
+  }),
+
+   new CopyWebpackPlugin({
+    patterns: [
+    {
+      from: 'public/assets',
+      to: 'assets'
+    }
+    ]
   })
 
   ]
