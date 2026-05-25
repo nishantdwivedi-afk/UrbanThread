@@ -5,6 +5,7 @@ import { PRODUCT_IMAGES } from '../../shared/constants/productImages';
 import { removeFromCart } from './cartSlice';
 
 import styles from './Cart.module.scss';
+import { MdDelete } from "react-icons/md";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const CartItem = ({ item }) => {
           onClick={() => dispatch(removeFromCart(item.sku))}
           aria-label={`Remove ${item.title}`}
         >
-          ×
+        <MdDelete size={26}/>
         </button>
 
         <strong>
