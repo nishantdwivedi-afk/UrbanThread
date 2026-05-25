@@ -34,7 +34,7 @@ const CartItem = ({ item }) => {
         <button
           type="button"
           onClick={() => dispatch(removeFromCart(item.sku))}
-          aria-label={`Remove ${item.title}`}
+          
         >
         <MdDelete size={26}/>
         </button>
