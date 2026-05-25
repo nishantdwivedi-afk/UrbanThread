@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import FiltersSidebar from '../../features/filters/FiltersSidebar';
-
 import ProductGrid from '../../features/products/ProductGrid';
-
 import { fetchProducts } from '../../features/products/productSlice';
-
 import CartSidebar from '../../features/cart/CartSidebar';
 
 import ProductSkeleton from '../../features/products/ProductSkeleton';
-
 import EmptyProducts from '../../features/products/EmptyProducts';
 
 import {

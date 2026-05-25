@@ -15,9 +15,9 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <article className={styles.card}>
+    <article className={styles.card} data-testid="productCard">
       {product.isFreeShipping && (
-        <span className={styles.badge}>
+        <span className={styles.badge} >
           Free Shipping
         </span>
       )}
@@ -26,13 +26,14 @@ const ProductCard = ({ product }) => {
         <img
          src={PRODUCT_IMAGES[product.sku] || '/assets/products/placeholder.jpg'}
           alt={product.title}
+          data-testid="productImage"
         />
       </div>
 
-      <h3>{product.title}</h3>
+      <h3 data-testid="productTitle">{product.title}</h3>
 
       <div className={styles.meta}>
-        <strong>
+        <strong data-testid="productPrice">
           {product.currencyFormat}{product.price}
         </strong>
 
@@ -44,8 +45,9 @@ const ProductCard = ({ product }) => {
       <button
         className={styles.addButton}
         onClick={handleAddToCart}
+        data-testid="addToCart"
       >
-        Add to Cart
+        Add to Cart  
       </button>
     </article>
   );

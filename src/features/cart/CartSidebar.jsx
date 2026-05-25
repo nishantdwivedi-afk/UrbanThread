@@ -42,11 +42,11 @@ const CartSidebar = () => {
               />
             ))}
           </div>
-
+          
           <div className={styles.footer}>
             <div className={styles.subtotal}>
               <span>Subtotal</span>
-
+              
               <strong>
                 ${subtotal.toFixed(2)}
               </strong>

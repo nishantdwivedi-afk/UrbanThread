@@ -28,7 +28,7 @@ const SizeFilter = () => {
 
           return (
             <button
-              key={size}
+              key={size}  // optimisation helps react track elem efficiently
               className={`${styles.sizeButton} ${
                 active ? styles.active : ''
               }`}
