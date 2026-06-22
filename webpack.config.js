@@ -1,8 +1,5 @@
-require('dotenv').config();
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -64,12 +61,6 @@ module.exports = {
       template: './public/index.html'
     }),
 
-    new webpack.DefinePlugin({
-      'process.env.PRODUCTS_API_URL': JSON.stringify(
-        process.env.PRODUCTS_API_URL || '/products.json'
-      )
-    }),
-
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -77,8 +68,8 @@ module.exports = {
           to: 'assets'
         },
         {
-          from: 'public/products.json',
-          to: 'products.json'
+          from: 'public/mock',
+          to: 'mock'
         }
       ]
     })

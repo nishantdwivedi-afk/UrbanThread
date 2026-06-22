@@ -34,7 +34,7 @@ describe('getProducts', () => {
     await vi.runAllTimersAsync();
     const products = await productsPromise;
 
-    expect(fetchMock).toHaveBeenCalledWith('/products.json');
+    expect(fetchMock).toHaveBeenCalledWith('/mock/products.json');
     expect(products).toEqual([
       {
         id: 1,

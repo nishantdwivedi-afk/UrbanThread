@@ -1,5 +1,4 @@
-const PRODUCTS_API_URL =
-  process.env.PRODUCTS_API_URL || '/products.json';
+const MOCK_PRODUCTS_ENDPOINT = '/mock/products.json';
 
 const delay = ms =>
   new Promise(resolve => setTimeout(resolve, ms));
@@ -19,7 +18,7 @@ const normalizeProduct = product => ({
 
 export const getProducts = async () => {
   await delay(1000);
-  const response = await fetch(PRODUCTS_API_URL);
+  const response = await fetch(MOCK_PRODUCTS_ENDPOINT);
 
   if (!response.ok) {
     throw new Error(
