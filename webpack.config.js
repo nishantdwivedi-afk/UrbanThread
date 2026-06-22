@@ -66,7 +66,7 @@ module.exports = {
 
     new webpack.DefinePlugin({
       'process.env.PRODUCTS_API_URL': JSON.stringify(
-        process.env.PRODUCTS_API_URL
+        process.env.PRODUCTS_API_URL || '/products.json'
       )
     }),
 
@@ -75,6 +75,10 @@ module.exports = {
         {
           from: 'public/assets',
           to: 'assets'
+        },
+        {
+          from: 'public/products.json',
+          to: 'products.json'
         }
       ]
     })
