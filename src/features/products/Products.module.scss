@@ -1,4 +1,5 @@
 @use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as mixins;
 
 .grid {
   display: grid;
@@ -7,17 +8,15 @@
 }
 
 .card {
+  @include mixins.card(22px);
+
   position: relative;
-  background: $color-white;
-  border: 1px solid $color-border;
-  border-radius: 22px;
   padding: 16px;
-  box-shadow: $shadow-card;
   transition: transform 0.2s ease;
 
   &:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
   }
 
   h3 {
@@ -92,10 +91,9 @@
 }
 
 .skeletonCard {
-  background: $color-white;
-  border-radius: 22px;
+  @include mixins.card(22px);
+
   padding: 16px;
-  border: 1px solid $color-border;
 }
 
 .skeletonImage,

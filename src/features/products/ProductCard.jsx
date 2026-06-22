@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
 
       <div className={styles.imageBox}>
         <img
-         src={PRODUCT_IMAGES[product.sku] || '/assets/products/placeholder.jpg'}
+          src={PRODUCT_IMAGES[product.sku] || '/assets/products/placeholder.jpg'}
           alt={product.title}
           data-testid="productImage"
         />
@@ -47,7 +47,7 @@ const ProductCard = ({ product }) => {
         onClick={handleAddToCart}
         data-testid="addToCart"
       >
-        Add to Cart  
+        Add to Cart
       </button>
     </article>
   );

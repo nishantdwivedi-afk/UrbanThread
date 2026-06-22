@@ -3,7 +3,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import CartItem from './CartItem';
-import { removeFromCart } from './cartSlice';
+import {
+  addItemToCart,
+  removeFromCart,
+  subItemToCart
+} from './cartSlice';
 
 const mockDispatch = vi.fn();
 
@@ -40,7 +44,7 @@ describe('CartItem', () => {
   it('should render cart item quantity', () => {
     render(<CartItem item={mockItem} />);
 
-    expect(screen.getByText('Quantity : 2')).toBeInTheDocument();
+    expect(screen.getByText('Quantity: 2')).toBeInTheDocument();
   });
 
   it('should render cart item price', () => {
@@ -52,10 +56,44 @@ describe('CartItem', () => {
   it('should dispatch removeFromCart on remove click', () => {
     render(<CartItem item={mockItem} />);
 
-    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByRole('button', {
+      name: 'Remove Urban Black Tee from cart'
+    }));
 
     expect(mockDispatch).toHaveBeenCalledWith(
       removeFromCart(mockItem.sku)
     );
+  });
+
+  it('should dispatch addItemToCart on increase click', () => {
+    render(<CartItem item={mockItem} />);
+
+    fireEvent.click(screen.getByRole('button', {
+      name: 'Increase quantity of Urban Black Tee'
+    }));
+
+    expect(mockDispatch).toHaveBeenCalledWith(
+      addItemToCart(mockItem.sku)
+    );
+  });
+
+  it('should dispatch subItemToCart on decrease click', () => {
+    render(<CartItem item={mockItem} />);
+
+    fireEvent.click(screen.getByRole('button', {
+      name: 'Decrease quantity of Urban Black Tee'
+    }));
+
+    expect(mockDispatch).toHaveBeenCalledWith(
+      subItemToCart(mockItem.sku)
+    );
+  });
+
+  it('should disable decrease when quantity is one', () => {
+    render(<CartItem item={{ ...mockItem, quantity: 1 }} />);
+
+    expect(screen.getByRole('button', {
+      name: 'Decrease quantity of Urban Black Tee'
+    })).toBeDisabled();
   });
 });

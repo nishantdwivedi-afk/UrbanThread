@@ -1,8 +1,8 @@
-import React from "react";
-import {describe, it, expect, vi} from 'vitest';
-import {render,screen,fireEvent} from '@testing-library/react';
-import ProductCard from "./ProductCard";
-import {addToCart} from '../cart/cartSlice';
+import React from 'react';
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import ProductCard from './ProductCard';
+import { addToCart } from '../cart/cartSlice';
 
 const mockDispatch = vi.fn();
 
@@ -21,56 +21,56 @@ const mockProduct = {
 };
 
 
-describe('Product Card', ()=>{
-    it('should render Product Card',()=>{
-        render(<ProductCard product={mockProduct}/>);
+describe('Product Card', () => {
+  it('should render Product Card', () => {
+    render(<ProductCard product={mockProduct} />);
 
-        expect(screen.getByTestId('productCard')).toBeInTheDocument();
-    });
+    expect(screen.getByTestId('productCard')).toBeInTheDocument();
+  });
 
-    it('should render free Shipping Badge', ()=>{
-        render(<ProductCard product={mockProduct} />);
+  it('should render free Shipping Badge', () => {
+    render(<ProductCard product={mockProduct} />);
 
-        expect(screen.getByText("Free Shipping"));
-    });
+    expect(screen.getByText('Free Shipping'));
+  });
 
-    // it('should render Product Image', ()=>{
-    //     render(<ProductCard product={mockProduct}/>);
+  // it('should render Product Image', ()=>{
+  //     render(<ProductCard product={mockProduct}/>);
 
-    //     expect(screen.getByAltText(mockProduct.title));
-    // });
+  //     expect(screen.getByAltText(mockProduct.title));
+  // });
 
-    it('should render Product Image', ()=>{
-        render(<ProductCard product={mockProduct}/>);
+  it('should render Product Image', () => {
+    render(<ProductCard product={mockProduct} />);
 
-        expect(screen.getByTestId('productImage')).toBeInTheDocument();
-    });
+    expect(screen.getByTestId('productImage')).toBeInTheDocument();
+  });
 
-    it('should render Product Title',()=>{
-        render(<ProductCard product={mockProduct} />);
+  it('should render Product Title', () => {
+    render(<ProductCard product={mockProduct} />);
 
-        expect(screen.getByTestId('productTitle')).toHaveTextContent(mockProduct.title);
-    });
+    expect(screen.getByTestId('productTitle')).toHaveTextContent(mockProduct.title);
+  });
 
-    it('should render Product Price', ()=>{
-        render(<ProductCard product={mockProduct}/>);
+  it('should render Product Price', () => {
+    render(<ProductCard product={mockProduct} />);
 
-        expect(screen.getByTestId('productPrice')).toHaveTextContent('$29.99');
-    });
+    expect(screen.getByTestId('productPrice')).toHaveTextContent('$29.99');
+  });
 
-    it('should render add To Cart text ', ()=>{
-        render(<ProductCard product={mockProduct} />);
+  it('should render add To Cart text ', () => {
+    render(<ProductCard product={mockProduct} />);
 
-        expect(screen.getByText('Add to Cart'));
-    });
+    expect(screen.getByText('Add to Cart'));
+  });
 
-    it('should dispatch addToCart action on button click', ()=>{
-        render(<ProductCard product={mockProduct}/>);
+  it('should dispatch addToCart action on button click', () => {
+    render(<ProductCard product={mockProduct} />);
 
-        fireEvent.click(screen.getByTestId('addToCart'));
+    fireEvent.click(screen.getByTestId('addToCart'));
 
-        expect(mockDispatch).toHaveBeenCalledWith(addToCart(mockProduct));
-    });
+    expect(mockDispatch).toHaveBeenCalledWith(addToCart(mockProduct));
+  });
 
 });
 

@@ -65,19 +65,19 @@ module.exports = {
     }),
 
     new webpack.DefinePlugin({
-    'process.env.PRODUCTS_API_URL': JSON.stringify(
-      process.env.PRODUCTS_API_URL
-    )
-  }),
+      'process.env.PRODUCTS_API_URL': JSON.stringify(
+        process.env.PRODUCTS_API_URL
+      )
+    }),
 
-   new CopyWebpackPlugin({
-    patterns: [
-    {
-      from: 'public/assets',
-      to: 'assets'
-    }
-    ]
-  })
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public/assets',
+          to: 'assets'
+        }
+      ]
+    })
 
   ]
 };

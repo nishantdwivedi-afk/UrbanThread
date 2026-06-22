@@ -1,4 +1,5 @@
 @use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as mixins;
 
 .page {
   display: grid;
@@ -11,13 +12,11 @@
 
 .filters,
 .cart {
-  background: $color-white;
-  border: 1px solid $color-border;
-  border-radius: 22px;
+  @include mixins.card(22px);
+
   padding: 22px;
   height: 100%;
   overflow: hidden;
-  box-shadow: $shadow-card;
 }
 
 .cart {

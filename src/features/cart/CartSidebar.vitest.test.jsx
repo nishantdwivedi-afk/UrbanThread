@@ -41,6 +41,7 @@ describe('CartSidebar', () => {
           sku: '12064273040195392',
           title: 'Urban Black Tee',
           price: 20,
+          currencyFormat: '$',
           quantity: 2
         }
       ]
@@ -59,12 +60,14 @@ describe('CartSidebar', () => {
           sku: '1',
           title: 'Tee One',
           price: 10,
+          currencyFormat: '$',
           quantity: 2
         },
         {
           sku: '2',
           title: 'Tee Two',
           price: 20,
+          currencyFormat: '$',
           quantity: 1
         }
       ]
@@ -82,12 +85,14 @@ describe('CartSidebar', () => {
           sku: '1',
           title: 'Tee One',
           price: 10,
+          currencyFormat: '€',
           quantity: 2
         },
         {
           sku: '2',
           title: 'Tee Two',
           price: 20,
+          currencyFormat: '€',
           quantity: 1
         }
       ]
@@ -95,7 +100,7 @@ describe('CartSidebar', () => {
 
     render(<CartSidebar />);
 
-    expect(screen.getByText('$40.00')).toBeInTheDocument();
+    expect(screen.getByText('€40.00')).toBeInTheDocument();
   });
 
   it('should render checkout button when cart has items', () => {
@@ -105,6 +110,7 @@ describe('CartSidebar', () => {
           sku: '1',
           title: 'Tee One',
           price: 10,
+          currencyFormat: '$',
           quantity: 1
         }
       ]

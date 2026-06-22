@@ -6,6 +6,7 @@ import CartItem from './CartItem';
 import EmptyCart from './EmptyCart';
 
 import {
+  selectCartCurrencyFormat,
   selectCartItems,
   selectCartItemsCount,
   selectCartSubtotal
@@ -19,6 +20,8 @@ const CartSidebar = () => {
   const subtotal = useSelector(selectCartSubtotal);
 
   const totalItems = useSelector(selectCartItemsCount);
+
+  const currencyFormat = useSelector(selectCartCurrencyFormat);
 
   return (
     <div className={styles.sidebar}>
@@ -42,13 +45,13 @@ const CartSidebar = () => {
               />
             ))}
           </div>
-          
+
           <div className={styles.footer}>
             <div className={styles.subtotal}>
               <span>Subtotal</span>
-              
+
               <strong>
-                ${subtotal.toFixed(2)}
+                {currencyFormat}{subtotal.toFixed(2)}
               </strong>
             </div>
 

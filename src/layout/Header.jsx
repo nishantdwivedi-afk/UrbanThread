@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         <h1>UrbanThread</h1>
         <p>Premium streetwear t-shirts</p>
       </div>
-       <FaShoppingCart size={32} style={{ marginRight: '10px' }}/> 
+      <FaShoppingCart size={32} style={{ marginRight: '10px' }} />
     </header>
   );
 };

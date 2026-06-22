@@ -1,6 +1,9 @@
 const PRODUCTS_API_URL =
   process.env.PRODUCTS_API_URL;
 
+const delay = ms =>
+  new Promise(resolve => setTimeout(resolve, ms));
+
 const normalizeProduct = product => ({
   id: product.id,
   sku: String(product.sku),
@@ -15,6 +18,7 @@ const normalizeProduct = product => ({
 });
 
 export const getProducts = async () => {
+  await delay(1000);
   const response = await fetch(PRODUCTS_API_URL);
 
   if (!response.ok) {

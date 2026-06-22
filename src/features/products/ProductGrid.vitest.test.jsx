@@ -1,7 +1,7 @@
-import react from "react";
-import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
-import ProductGrid from './ProductGrid'
+import React from 'react';
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import ProductGrid from './ProductGrid';
 
 vi.mock('./ProductCard', () => ({
   default: ({ product }) => (
@@ -25,14 +25,14 @@ const mockProducts = [
 ];
 
 
-describe('Product Grid', ()=>{
-    it('should render all Product Cards', ()=>{
-        render(<ProductGrid products={mockProducts} />);
+describe('Product Grid', () => {
+  it('should render all Product Cards', () => {
+    render(<ProductGrid products={mockProducts} />);
 
-        expect(screen.getAllByTestId('mockProductCard')).toHaveLength(2);
-    });
+    expect(screen.getAllByTestId('mockProductCard')).toHaveLength(2);
+  });
 
-    it('should render product titles through product card', () => {
+  it('should render product titles through product card', () => {
     render(<ProductGrid products={mockProducts} />);
 
     expect(screen.getByText('Urban Black Tee')).toBeInTheDocument();
@@ -41,4 +41,4 @@ describe('Product Grid', ()=>{
   });
 
 
-})
+});

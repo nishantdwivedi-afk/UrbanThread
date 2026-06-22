@@ -47,8 +47,8 @@ const ProductListingPage = () => {
         {loading && (
           <div className={styles.skeletonGrid}>
             {Array.from({ length: 6 }).map((_, index) => (
-            <ProductSkeleton key={index} />
-          ))}
+              <ProductSkeleton key={index} />
+            ))}
           </div>
         )}
 
@@ -61,14 +61,14 @@ const ProductListingPage = () => {
         )}
 
         {!loading && !error && !products.length && (
-        <EmptyProducts />
+          <EmptyProducts />
         )}
-        
+
       </main>
 
-     <aside className={styles.cart}>
-       <CartSidebar />
-     </aside>
+      <aside className={styles.cart}>
+        <CartSidebar />
+      </aside>
     </div>
   );
 };

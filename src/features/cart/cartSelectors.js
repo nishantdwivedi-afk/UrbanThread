@@ -13,3 +13,8 @@ export const selectCartSubtotal = createSelector(
   [selectCartItems],
   getCartSubtotal
 );
+
+export const selectCartCurrencyFormat = createSelector(
+  [selectCartItems],
+  items => items[0]?.currencyFormat ?? ''
+);

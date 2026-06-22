@@ -29,10 +29,26 @@ const cartSlice = createSlice({
       state.items = state.items.filter(
         item => item.sku !== action.payload
       );
+    },
+
+    subItemToCart: (state, action) => {
+      const existingItem = state.items.find(
+        item => item.sku === action.payload
+      );
+
+      if (existingItem && existingItem.quantity > 1) existingItem.quantity -= 1;
+    },
+
+    addItemToCart: (state, action) => {
+      const existingItem = state.items.find(
+        item => item.sku === action.payload
+      );
+
+      if (existingItem) existingItem.quantity += 1;
     }
   }
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, subItemToCart, addItemToCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
