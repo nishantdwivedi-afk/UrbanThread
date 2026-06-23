@@ -1,3 +1,5 @@
+const PRODUCTS_ENDPOINT =
+  'https://mocki.io/v1/a35717b0-a49c-46b1-b5c9-772628770efc';
 const MOCK_PRODUCTS_ENDPOINT = '/mock/products.json';
 
 const delay = ms =>
@@ -16,10 +18,8 @@ const normalizeProduct = product => ({
   isFreeShipping: product.isFreeShipping
 });
 
-export const getProducts = async () => {
-  await delay(1000);
-  const response = await fetch(MOCK_PRODUCTS_ENDPOINT);
-
+const fetchProductsFrom = async endpoint => {
+  const response = await fetch(endpoint);
   if (!response.ok) {
     throw new Error(
       `Failed to fetch products: ${response.status} ${response.statusText}`
@@ -33,4 +33,14 @@ export const getProducts = async () => {
   }
 
   return data.products.map(normalizeProduct);
+};
+
+export const getProducts = async () => {
+  await delay(1000);
+
+  try {
+    return await fetchProductsFrom(PRODUCTS_ENDPOINT);
+  } catch {
+    return fetchProductsFrom(MOCK_PRODUCTS_ENDPOINT);
+  }
 };
